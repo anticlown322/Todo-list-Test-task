@@ -1,0 +1,94 @@
+name: CI Pipeline
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'yarn'
+          cache-dependency-path: 'yarn.lock'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run lint
+        run: yarn lint
+
+  test:
+    needs: [lint]
+    strategy:
+      matrix:
+        version: [20, 22, 24]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
+          cache: 'yarn'
+          cache-dependency-path: 'yarn.lock'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: tests
+        run: yarn test
+
+  build:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'yarn'
+          cache-dependency-path: 'yarn.lock'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: dist/
+
+  deploy:
+    needs: [build]
+    if: contains('refs/heads/main refs/heads/stage refs/heads/dev', github.ref)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          path: dist/
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: './dist'
+          production-branch: main
+          production-deploy: ${{ github.ref == 'refs/heads/main' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: |
+            ${{ github.ref == 'refs/heads/main' && 'Production deploy' ||
+                 github.ref == 'refs/heads/stage' && 'Stage deploy' ||
+                 'Dev deploy' }}
+            SHA: ${{ github.sha }}
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
