@@ -1,8 +1,4 @@
-import { platformBrowser } from '@angular/platform-browser';
-import { AppModule } from './app/app-module.js';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { App } from './app/app.js';
 
-platformBrowser()
-  .bootstrapModule(AppModule, {
-    ngZoneEventCoalescing: true,
-  })
-  .catch((err) => console.error(err));
+bootstrapApplication(App).catch((err) => console.error(err));
