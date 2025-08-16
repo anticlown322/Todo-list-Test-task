@@ -7,13 +7,14 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "standalone": false
+          "style": "less",
+          "standalone": true
         },
         "@schematics/angular:directive": {
-          "standalone": false
+          "standalone": true
         },
         "@schematics/angular:pipe": {
-          "standalone": false
+          "standalone": true
         }
       },
       "root": "",
@@ -35,7 +36,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.less"
             ]
           },
           "configurations": {
@@ -92,7 +93,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.less"
             ]
           }
         },
