@@ -1,5 +1,19 @@
 @import 'variables.less';
 
+@font-face {
+  font-family: 'jost';
+  src: url('./assets/fonts/jost/Jost-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'jost';
+  src: url('./assets/fonts/jost/Jost-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
 html {
   font-size: @base-font-size;
 }
@@ -121,9 +135,6 @@ a {
 .pleft-6 {
   padding-left: @spacing-xl;
 }
-
-
-//////////////////////////////////////////////
 
 .mtop-1 {
   margin-top: @spacing-xxs;
@@ -289,4 +300,8 @@ a {
 
 .justify-center {
   justify-content: center
+}
+
+.justify-between {
+  justify-content: space-between
 }

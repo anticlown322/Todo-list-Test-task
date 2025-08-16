@@ -1,0 +1,19 @@
+<header class="dis-flex justify-between align-center header">
+  <div class="header__title">Modsen Todo list</div>
+  <nav class="dis-flex header__nav">
+    <a
+      class="header__link"
+      routerLink="/"
+      [class.header__link--active]="isActive('/')"
+    >
+      Home
+    </a>
+    <a
+      class="header__link"
+      routerLink="/settings"
+      [class.header__link--active]="isActive('/settings')"
+    >
+      Settings
+    </a>
+  </nav>
+</header>

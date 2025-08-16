@@ -1,0 +1,64 @@
+@import '../../../../variables';
+
+.header {
+  padding: @spacing-md;
+  background: @primary-color;
+  color: @secondary-color;
+  font-family: @font-family;
+
+  &__title {
+    font-weight: @font-weight-bold;
+    font-size: @font-size-huge;
+  }
+
+  &__nav {
+    display: flex;
+    font-weight: @font-weight-light;
+    font-size: @font-size-huge;
+    gap: @spacing-md;
+  }
+
+  &__link {
+    color: @secondary-color;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+
+    &:hover::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: @secondary-color;
+    }
+
+    &--active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: @secondary-color;
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .header {
+    padding: @spacing-xs;
+    flex-direction: column;
+    gap: @spacing-xs;
+    font-family: @font-family;
+
+    &__title {
+      font-size: 1rem;
+    }
+
+    &__nav {
+      gap: @spacing-sm;
+    }
+  }
+}

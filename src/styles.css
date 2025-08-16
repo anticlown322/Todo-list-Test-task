@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'jost';
+  src: url('./assets/fonts/jost/Jost-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'jost';
+  src: url('./assets/fonts/jost/Jost-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
 html {
   font-size: 16px;
 }
@@ -223,5 +235,8 @@ a:hover {
 }
 .justify-center {
   justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
 }
 /*# sourceMappingURL=styles.css.map */
