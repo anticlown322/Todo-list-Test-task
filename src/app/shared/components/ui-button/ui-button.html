@@ -1,0 +1,10 @@
+<button
+  type="button"
+  [class]="buttonClass"
+  [disabled]="disabled()"
+  [style.min-width]="minWidth()"
+  [style.width]="fullWidth() ? '100%' : null"
+  (click)="buttonClick.emit($event)"
+>
+  <ng-content />
+</button>
