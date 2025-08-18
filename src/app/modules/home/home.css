@@ -1,0 +1,8 @@
+.page-content {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  min-height: calc(100vh - 2 * 2rem);
+  gap: 1rem;
+}
+/*# sourceMappingURL=home.css.map */

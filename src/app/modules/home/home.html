@@ -1,0 +1,13 @@
+<main class="dis-flex flex-column page-content">
+  <app-todo-input
+    class="mbot-6"
+    (addTask)="addTask($event)"
+    (editTask)="updateTask($event)"
+  />
+  <app-todo-list
+    [tasks]="tasks"
+    (deleteSelected)="deleteSelectedTasks()"
+    (taskCompleteChange)="toggleTaskComplete($event)"
+    (taskEdit)="startEditTask($event)"
+  />
+</main>

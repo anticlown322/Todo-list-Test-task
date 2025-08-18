@@ -1,0 +1,8 @@
+<button
+  class="icon-button"
+  [class.disabled]="disabled()"
+  [disabled]="disabled()"
+  (click)="handleClick($event)"
+>
+  <img class="icon" [alt]="altText()" [src]="iconPath()" />
+</button>

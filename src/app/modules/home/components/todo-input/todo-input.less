@@ -1,0 +1,49 @@
+@import '../../../../../variables';
+
+.todo-input-container {
+  gap: @spacing-md;
+  margin-bottom: @spacing-xl;
+
+  .title {
+    font-size: @font-size-xl;
+    font-weight: @font-weight-regular;
+    color: @primary-color;
+  }
+
+  app-ui-button {
+    flex-shrink: 0;
+    width: auto;
+  }
+
+  input {
+    flex: 1;
+    padding: @spacing-sm @spacing-md;
+    font-size: @font-size-xxxl;
+    font-family: @font-family-default;
+    border: none;
+    border-bottom: 4px solid @primary-color;
+    border-radius: 0;
+
+    &::placeholder {
+      color: @faded-text-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @media (max-width: @max-mobile-width) {
+    flex-direction: column;
+    gap: @spacing-sm;
+
+    input {
+      font-size: @font-size-lg;
+    }
+
+    app-ui-button {
+      width: 100%;
+      margin-top: @spacing-md;
+    }
+  }
+}

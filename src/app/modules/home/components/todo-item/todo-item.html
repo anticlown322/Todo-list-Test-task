@@ -1,0 +1,25 @@
+<div class="dis-flex todo-item" [class.completed]="task().completed">
+  <div class="dis-flex ptop-1 task-content">
+    <app-ui-checkbox
+      class="task-checkbox"
+      [checked]="task().completed"
+      (boxChange)="toggleComplete()"
+    />
+    <span class="task-text">{{ task().text }}</span>
+  </div>
+  <div class="dis-flex">
+    <app-ui-icon-button
+      [altText]="'Edit item'"
+      [iconPath]="'assets/images/pencil.png'"
+      [size]="'large'"
+      (clicked)="edit.emit(task())"
+    />
+
+    <app-ui-icon-button
+      [altText]="'Delete item'"
+      [iconPath]="'assets/images/trash-bin.png'"
+      [size]="'large'"
+      (clicked)="delete.emit(task())"
+    />
+  </div>
+</div>

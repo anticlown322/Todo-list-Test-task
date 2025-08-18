@@ -1,0 +1,24 @@
+.todo-list {
+  gap: 1rem;
+}
+.todo-list .todo-list-title,
+.todo-list app-todo-item {
+  flex: 0 0 auto;
+}
+.todo-list .todo-list-title {
+  font-size: 2.25rem;
+  font-weight: 400;
+}
+.todo-list .task-list-container {
+  flex: 1;
+  overflow-y: auto;
+}
+.todo-list app-ui-button {
+  margin-top: auto;
+}
+@media (max-width: 560px) {
+  .todo-list app-ui-button {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=todo-list.css.map */

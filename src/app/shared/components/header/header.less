@@ -1,0 +1,56 @@
+@import '../../../../variables';
+
+.header {
+  padding: @spacing-md;
+  background: @primary-color;
+  color: @secondary-color;
+  font-family: @font-family-default;
+
+  &__title {
+    font-weight: @font-weight-bold;
+    font-size: @font-size-huge;
+  }
+
+  &__nav {
+    font-weight: @font-weight-light;
+    font-size: @font-size-huge;
+    gap: @spacing-md;
+  }
+
+  &__link {
+    color: @secondary-color;
+    text-decoration: none;
+    position: relative;
+
+    &:hover::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: @secondary-color;
+    }
+
+    &--active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: @secondary-color;
+    }
+  }
+
+  &__burger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: @spacing-xs;
+
+    @media (min-width: 720px) {
+      display: none;
+    }
+  }
+}

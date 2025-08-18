@@ -1,0 +1,49 @@
+<div class="dis-flex flex-column height-100 todo-list">
+  <div class="text-align-center todo-list-title">Task list</div>
+
+  <div class="task-list-container">
+    @for (task of tasks(); track tasks()) {
+      <app-todo-item
+        [task]="task"
+        (completeChange)="onTaskCompleteChange(task, $event)"
+        (edit)="onTaskEdit(task)"
+      />
+    }
+
+    <!--test data-->
+    <app-todo-item
+      [task]="exampleTask"
+      (completeChange)="onTaskCompleteChange(exampleTask, $event)"
+      (edit)="onTaskEdit(exampleTask)"
+    />
+    <app-todo-item
+      [task]="exampleTask"
+      (completeChange)="onTaskCompleteChange(exampleTask, $event)"
+      (edit)="onTaskEdit(exampleTask)"
+    />
+    <app-todo-item
+      [task]="exampleTask"
+      (completeChange)="onTaskCompleteChange(exampleTask, $event)"
+      (edit)="onTaskEdit(exampleTask)"
+    />
+    <app-todo-item
+      [task]="exampleTask"
+      (completeChange)="onTaskCompleteChange(exampleTask, $event)"
+      (edit)="onTaskEdit(exampleTask)"
+    />
+    <app-todo-item
+      [task]="exampleTask"
+      (completeChange)="onTaskCompleteChange(exampleTask, $event)"
+      (edit)="onTaskEdit(exampleTask)"
+    />
+  </div>
+
+  <app-ui-button
+    variant="danger"
+    [fullWidth]="isMobile()"
+    [minWidth]="'120px'"
+    (buttonClick)="deleteSelected.emit()"
+  >
+    Delete selected
+  </app-ui-button>
+</div>

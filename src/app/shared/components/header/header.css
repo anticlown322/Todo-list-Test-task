@@ -1,0 +1,50 @@
+.header {
+  padding: 1rem;
+  background: #3E50B5;
+  color: #FFFFFF;
+  font-family: 'Jost';
+}
+.header__title {
+  font-weight: 700;
+  font-size: 2.25rem;
+}
+.header__nav {
+  font-weight: 300;
+  font-size: 2.25rem;
+  gap: 1rem;
+}
+.header__link {
+  color: #FFFFFF;
+  text-decoration: none;
+  position: relative;
+}
+.header__link:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #FFFFFF;
+}
+.header__link--active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #FFFFFF;
+}
+.header__burger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+@media (min-width: 720px) {
+  .header__burger {
+    display: none;
+  }
+}
+/*# sourceMappingURL=header.css.map */

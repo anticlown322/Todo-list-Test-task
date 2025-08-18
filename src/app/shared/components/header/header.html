@@ -1,0 +1,33 @@
+<header class="dis-flex justify-between align-center header">
+  <div class="header__title">Modsen Todo list</div>
+
+  @if (!isMobileView || menuOpen) {
+    <nav class="dis-flex header__nav">
+      <a
+        class="pbot-1 header__link"
+        routerLink="/"
+        [class.header__link--active]="isActive('/')"
+        (click)="closeMenu()"
+      >
+        Home
+      </a>
+      <a
+        class="pbot-1 header__link"
+        routerLink="/settings"
+        [class.header__link--active]="isActive('/settings')"
+        (click)="closeMenu()"
+      >
+        Settings
+      </a>
+    </nav>
+  } @else {
+    <button class="header__burger" type="button" (click)="toggleMenu()">
+      <img
+        alt="Menu"
+        height="34"
+        ngSrc="assets/images/burger-menu.png"
+        width="34"
+      />
+    </button>
+  }
+</header>
