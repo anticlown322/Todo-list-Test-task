@@ -1,0 +1,29 @@
+@import '../../../../../variables';
+
+.todo-item {
+  padding: @spacing-sm @spacing-md;
+  margin-bottom: @spacing-xs;
+  background-color: @secondary-color;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: @box-shadow-md;
+  }
+
+  .task-content {
+    width: 100%;
+    flex-direction: row;
+    border-top: 1px solid @faded-elem-color;
+  }
+
+  .task-checkbox {
+    padding: @spacing-sm;
+  }
+
+  .task-text {
+    flex: 1;
+    font-size: @font-size-xxl;
+    color: @content-text-color;
+    word-break: break-word;
+  }
+}

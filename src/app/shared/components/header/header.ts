@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
+import { constants } from '../../constants/constants.js';
 
 @Component({
   selector: 'app-header',
@@ -42,7 +43,7 @@ export class Header implements OnInit {
   }
 
   private checkViewport(): void {
-    this.isMobileView = window.innerWidth < 720;
+    this.isMobileView = window.innerWidth <= constants.ui.maxMobileWidth;
     if (!this.isMobileView) {
       this.menuOpen = false;
     }

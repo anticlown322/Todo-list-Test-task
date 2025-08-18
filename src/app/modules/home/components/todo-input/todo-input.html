@@ -1,0 +1,19 @@
+<div class="dis-flex align-center todo-input-container">
+  <div class="dis-flex flex-column width-100">
+    <span class="title"> Add a new task </span>
+    <input
+      placeholder="Your task"
+      type="text"
+      [value]="taskText"
+      (keyup.enter)="handleAddOrEdit()"
+    />
+  </div>
+  <app-ui-button
+    [fullWidth]="isMobile()"
+    [minWidth]="'200px'"
+    [variant]="isEditing ? 'secondary' : 'primary'"
+    (buttonClick)="handleAddOrEdit()"
+  >
+    {{ isEditing ? "Edit" : "Add todo" }}
+  </app-ui-button>
+</div>

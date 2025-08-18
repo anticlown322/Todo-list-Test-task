@@ -1,0 +1,30 @@
+@import '../../../../../variables';
+
+.todo-list {
+  gap: @spacing-md;
+
+  .todo-list-title,
+  app-todo-item {
+    flex: 0 0 auto;
+  }
+
+  .todo-list-title {
+    font-size: @font-size-huge;
+    font-weight: @font-weight-regular;
+  }
+
+  .task-list-container {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  app-ui-button {
+    margin-top: auto;
+  }
+
+  @media (max-width: @max-mobile-width) {
+    app-ui-button {
+      width: 100%;
+    }
+  }
+}

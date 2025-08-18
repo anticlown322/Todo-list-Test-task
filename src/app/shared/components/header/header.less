@@ -4,7 +4,7 @@
   padding: @spacing-md;
   background: @primary-color;
   color: @secondary-color;
-  font-family: @font-family;
+  font-family: @font-family-default;
 
   &__title {
     font-weight: @font-weight-bold;
@@ -51,25 +51,6 @@
 
     @media (min-width: 720px) {
       display: none;
-    }
-  }
-}
-
-@media (max-width: 390px) {
-  .header {
-    padding: @spacing-xs;
-    gap: @spacing-xs;
-    font-family: @font-family;
-
-    &__title {
-      font-size: @font-size-md;
-      font-weight: @font-weight-medium;
-    }
-
-    &__nav {
-      gap: @spacing-sm;
-      font-size: @font-size-xs;
-      font-weight: @font-weight-light;
     }
   }
 }
